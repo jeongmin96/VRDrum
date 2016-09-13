@@ -1,0 +1,20 @@
+처음 할때
+git config --global user.name "이름"
+git config --global user.email "깃허브 메일주소"
+
+저장소 설정
+git init
+git remote add origin https://github.com/jeongmin96/VRDrum.git
+git pull origin master
+
+commit할 때
+git add --all
+git commit -m "뭔 기능을 추가한다."
+git push origin master
+
+상태 확인
+git status
+git remote -v
+git show
+git log
+git checkout
