@@ -5,5 +5,8 @@ GameObjects : 모든 게임 내 물체들의 최상위 부모 클래스
 
 Physics
 - Rigibody : 물리의 영향을 받는 GameObject
-- Collider : 다른 오브젝트와 충돌하는 모양. '보이는' 모양과 달라도 됨
-- 
+	-Property에 Velocity 가 있음.
+	-Acceleration 은 없지만 필요 없을 수도 있음. 필요하면 만들면 됨.
+- Collider : 다른 오브젝트와 충돌하는 모양. '보이는' 모양과 달라도 됨.
+
+C# : C++과 문법 거의 같음. 다만 .Net을 사용할 뿐.
