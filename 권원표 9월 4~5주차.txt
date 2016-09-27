@@ -1,0 +1,33 @@
+http://www.tobias-erichsen.de/software/virtualmidi/virtualmidi-sdk.html
+
+virtualMIDI SDK
+-Not an app. but just library and code-samples
+to show developers how to dynamically create and destroy
+ freely nameable MIDI-ports using virtualMIDI driver
+
+pre-installed loopMIDI or rtpMIDI needed.
+
+this is copyrighted by Tobias Erichsen. 
+
+
+http://www.tobias-erichsen.de/software/virtualmidi.html
+
+virtualMIDI - one of virtual MIDI miniport driver implementation
+ Virtual MIDI driver which can be executed on Windows 10(both 32- or 64bit)
+The driver is currently part of the rtpMIDI-driver network-MIDI driver
+ and the loopMIDI virtual loopback MIDI cable.
+ But it can be used for other tasks as well.
+
+
+http://www.tobias-erichsen.de/software/rtpmidi.html
+
+rtpMIDI
+Network MIDI driver : can connect devices without using MIDI cables.
+step-by-step tutorial 포함!
+
+http://www.tobias-erichsen.de/software/loopmidi.html
+
+loopMIDI
+Virtual loopback MIDI cable for Windows XP up to Windows 10, 32 and 64 bit.
+
+비슷한 걸로는 LoopBe1 이 있다.
