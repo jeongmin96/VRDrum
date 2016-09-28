@@ -1,0 +1,13 @@
+유정민
+- 미디 노트를 hexadecimal 로 표현하는 방법
+- 미디 부분 코드 짜기
+
+권원표
+- 컨트롤러 움직임 외에 어떤 동작을 인식할 수 있는지 확인
+- 노트북 포맷하기
+- virtualMIDI SDK깔기(C:\Program Files (x86)\Torb어쩌고\teVirtualMIDISDK 에 깔렸는지 확인)
+
+이종건
+- Blender 로 드럼 만들기 (http://www.3dcadbrowser.com/download.aspx?3dmodel=10048 참고)
+- virtualMIDI SDK깔기(C:\Program Files (x86)\Torb어쩌고\teVirtualMIDISDK 에 깔렸는지 확인)
+
