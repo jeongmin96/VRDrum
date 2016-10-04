@@ -11,3 +11,6 @@
 - Blender 로 드럼 만들기 (http://www.3dcadbrowser.com/download.aspx?3dmodel=10048 참고)
 - virtualMIDI SDK깔기(C:\Program Files (x86)\Torb어쩌고\teVirtualMIDISDK 에 깔렸는지 확인)
 
+
+https://www.youtube.com/watch?v=EvtFn73LgDg
+
