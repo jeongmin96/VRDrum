@@ -14,3 +14,6 @@
 #Touchpad - pushing in the large circular touchpad
 
 #Trigger - front button
+
+**button programming**
+https://youtu.be/LZTctk19sx8
