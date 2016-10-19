@@ -1,2 +1,16 @@
 벽이 중요한 지 알아보기
 - https://youtu.be/920S62fDALA -> 없어도 됨
+-------------------------------------------------
+**button scripts**
+
+#System - small black button that brings up Big Picture overlay
+
+#ApplicationMenu - red button
+
+#Grip - the bumper-like buttons on the left and right sides of the controller. Both buttons send the same input
+
+#Axis0, Axis1, Axis2, Axis3, Axis4 - "Trigger and touchpad are aliases of these. Each 'axis' actually have both an x and y (not sure why), though only x is used for trigger."
+
+#Touchpad - pushing in the large circular touchpad
+
+#Trigger - front button
