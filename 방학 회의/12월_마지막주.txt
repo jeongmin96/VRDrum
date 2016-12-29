@@ -1,0 +1,19 @@
+종건
+- 부품보내기
+- Collision 하면 타격 효과(Particle System?)
+- 브레멘 로고 같은거 킥에 박으셈
+- 탐 피 반투명하게
+
+원표
+- 아두이노에서 센서값 받아오는거
+- VRDrum git 폴더 정리좀
+- 
+
+정민
+- 스틱 바디로 치는거
+
+1. 충돌하는 순간 Stick의 Trigger On
+2. TriggerExit 되는 순간 Stick Trigger Off
+ -> Lock도 됨
+
+- Ride MIDI Player
