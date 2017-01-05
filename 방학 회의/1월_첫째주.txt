@@ -1,0 +1,18 @@
+종건
+반투명하게 하는거
+히트이펙트
+
+원표
+아두이노 연결
+센서 값 스케일?
+하이햇페달은 틸트로 확정
+git폴더 정리
+
+정민
+1. 충돌하는 순간 Stick의 Trigger On
+2. TriggerExit 되는 순간 Stick Trigger Off
+ -> Lock도 됨
+
+- Ride MIDI Player
+- Crash / HiHat도 Stick Body / Tip 구분
+- 
