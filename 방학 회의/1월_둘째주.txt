@@ -1,0 +1,19 @@
+종건, 원표
+C#에서 시리얼 통신해서 Debug.Log에 표시하는거
+가속도센서 헤더파일 찾아야됨
+
+종건
+히트이펙트 크기
+크기조절
+
+원표
+git 폴더 다시 세팅하고 정리
+
+정민
+방학끝나고
+
+1. 충돌하는 순간 Stick의 Trigger On
+2. TriggerExit 되는 순간 Stick Trigger Off
+ -> Lock도 됨
+
+- 심벌 엣지 사이즈
