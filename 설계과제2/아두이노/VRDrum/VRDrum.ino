@@ -11,23 +11,23 @@ char buf[3];
 
 void setup() 
 {
-  Serial.begin(19200);
-  delay(500);
+  Serial.begin(9600);
+  delay(100);
   pinMode(A3,INPUT);
-  tiltSensor.initSensitivity(2); //¹Î°¨µµ ¼³Á¤
-  accelSensor.begin(13, 12, 11, 10, A0, A1, A2); //ÇÉ¼³Á¤ sleepPin, selfTestPin, zeroGPin, gSelectPin, X, Y, Z ¼ø
-  accelSensor.setARefVoltage(5); //AREF Àü¾Ð
-  accelSensor.setSensitivity(LOW); // +/-6G °¨µµ¼³Á¤ (HIGH´Â 1.5G)
-  accelSensor.calibrate(); // ÃÊ±â°ª º¸Á¤ÇÔ¼ö (ÃÊ±â°ªÀº Áö¸é°ú ¼öÆòÇÏ°Ô ³õÀ» °Í)
+  tiltSensor.initSensitivity(2); //ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+  accelSensor.begin(13, 12, 11, 10, A0, A1, A2); //ï¿½É¼ï¿½ï¿½ï¿½ sleepPin, selfTestPin, zeroGPin, gSelectPin, X, Y, Z ï¿½ï¿½
+  accelSensor.setARefVoltage(5); //AREF ï¿½ï¿½ï¿½ï¿½
+  accelSensor.setSensitivity(LOW); // +/-6G ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (HIGHï¿½ï¿½ 1.5G)
+  accelSensor.calibrate(); // ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ (ï¿½Ê±â°ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 }
 
-int MovingAverage(int new) {
+int MovingAverage(int a) {
     static int backup[N]={0};
     static int pivot=0;
     static bool first=true;
     int i=0;
     int sum=0;
-    backup[pivot++]=new;
+    backup[pivot++]=a;
     if(pivot==N) {
         if(first) first=false;
         pivot=0;
@@ -40,21 +40,23 @@ int MovingAverage(int new) {
 
 void loop() 
 {
-  if(Serial.availableForWrite()<10) return;
+  if(Serial.availableForWrite()<10)
+    Serial.flush();
+  
   
   //read Sensor Values
   acZ = accelSensor.getZRaw();   // accel Sensor
   piezo=analogRead(A3);
   tiltZ = MovingAverage(tiltSensor.readAxis('z')); //tilt sensor
 
-    //print tilt and accel values
+  //print tilt and accel values
   if(acZ<0) acZ=0;
   Serial.print(acZ,HEX);
-  Serial.print("\t");
+  Serial.print('\t');
   
   if(piezo>255) piezo=255;
   Serial.print(piezo,HEX);
-  Serial.print("\t");
+  Serial.print('\t');
   /*  if(tiltZ< -9) Serial.println("open");
     else if(tiltZ>=-9 && tiltZ< 4) Serial.println("3/4 open");
     else if(tiltZ>= 4 && tiltZ<16) Serial.println("half");
@@ -63,7 +65,8 @@ void loop()
     Serial.print(tiltZ,DEC);*/
   if(tiltZ>127) tiltZ=127;
   sprintf(buf, "%02x", tiltZ);
-  Serial.println(buf);
-
+  Serial.print(buf);
+  Serial.print('\n');
+  
   delay(10);
  }
