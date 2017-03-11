@@ -1,10 +1,10 @@
 #include <AcceleroMMA7361.h>
 #include <Wire.h>
 #include <MMA_7455.h>
-#define N 10
+#define N 5
 AcceleroMMA7361 accelSensor;
 MMA_7455 tiltSensor = MMA_7455();
-int tiltZ; //tilt Z-axis
+char tiltZ; //tilt Z-axis
 int acZ; //accel Z-axis
 int piezo;
 char buf[3];
@@ -19,10 +19,11 @@ void setup()
   accelSensor.setARefVoltage(5); //AREF ����
   accelSensor.setSensitivity(LOW); // +/-6G �������� (HIGH�� 1.5G)
   accelSensor.calibrate(); // �ʱⰪ �����Լ� (�ʱⰪ�� ����� �����ϰ� ���� ��)
+  Serial.print("\n");
 }
 
-int MovingAverage(int a) {
-    static int backup[N]={0};
+char MovingAverage(char a) {
+    static char backup[N]={0};
     static int pivot=0;
     static bool first=true;
     int i=0;
@@ -35,38 +36,39 @@ int MovingAverage(int a) {
     for(i=0; i<((first)?pivot:N); i++) {
         sum+=backup[i];
     }
-    return sum/((first)?pivot:N);
+    return (char)(sum/((first)?pivot:N));
 }
 
-void loop() 
+void loop()
 {
-  if(Serial.availableForWrite()<10)
-    Serial.flush();
+    if(Serial.availableForWrite()<10)
+        Serial.flush();
+      
+      
+    //read Sensor Values
+    acZ = accelSensor.getZRaw();   // accel Sensor
+    piezo=analogRead(A3);
+    tiltZ = MovingAverage((char)tiltSensor.readAxis('z')); //tilt sensor
   
-  
-  //read Sensor Values
-  acZ = accelSensor.getZRaw();   // accel Sensor
-  piezo=analogRead(A3);
-  tiltZ = MovingAverage(tiltSensor.readAxis('z')); //tilt sensor
-
-  //print tilt and accel values
-  if(acZ<0) acZ=0;
-  Serial.print(acZ,HEX);
-  Serial.print('\t');
-  
-  if(piezo>255) piezo=255;
-  Serial.print(piezo,HEX);
-  Serial.print('\t');
-  /*  if(tiltZ< -9) Serial.println("open");
-    else if(tiltZ>=-9 && tiltZ< 4) Serial.println("3/4 open");
-    else if(tiltZ>= 4 && tiltZ<16) Serial.println("half");
-    else if(tiltZ>=16 && tiltZ<29) Serial.println("1/4 open");
-    else Serial.print("close");
-    Serial.print(tiltZ,DEC);*/
-  if(tiltZ>127) tiltZ=127;
-  sprintf(buf, "%02x", tiltZ);
-  Serial.print(buf);
-  Serial.print('\n');
-  
-  delay(10);
+    //print tilt and accel values
+    if(acZ<0) acZ=0;
+    Serial.print(acZ,HEX);
+    Serial.print('\t');
+    
+    if(piezo>255) piezo=255;
+    Serial.print(piezo,HEX);
+    Serial.print('\t');
+    /*  if(tiltZ< -9) Serial.println("open");
+      else if(tiltZ>=-9 && tiltZ< 4) Serial.println("3/4 open");
+      else if(tiltZ>= 4 && tiltZ<16) Serial.println("half");
+      else if(tiltZ>=16 && tiltZ<29) Serial.println("1/4 open");
+      else Serial.print("close");
+      Serial.print(tiltZ,DEC);*/
+    //if(tiltZ>127) tiltZ=127;
+    sprintf(buf, "%02x", (unsigned char)tiltZ);
+    Serial.print(buf);
+    //Serial.print((char)tiltSensor.readAxis('z'),DEC);
+    Serial.print('\n');
+    
+    delay(10);
  }
